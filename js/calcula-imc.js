@@ -1,22 +1,22 @@
-var titulo = document.querySelector(".titulo");
+const titulo = document.querySelector(".titulo");
 titulo.textContent = "IMC Gerenciador de Clientes (BMI Client Management)";
 
 var clientes = document.querySelectorAll(".cliente");
 
-for (var i = 0; i < clientes.length; i++) {     // Iterando os clientes da tabela
+for (let i = 0; i < clientes.length; i++) {     // Iterando os clientes da tabela
 
-    var cliente = clientes[i];
+    const cliente = clientes[i];
 
-    var tdPeso = cliente.querySelector(".info-peso");
-    var peso = tdPeso.textContent;
+    const tdPeso = cliente.querySelector(".info-peso");
+    let peso = tdPeso.textContent;
 
-    var tdAltura = cliente.querySelector(".info-altura");
-    var altura = tdAltura.textContent;
+    const tdAltura = cliente.querySelector(".info-altura");
+    let altura = tdAltura.textContent;
 
-    var tdImc = cliente.querySelector(".info-imc");
+    const tdImc = cliente.querySelector(".info-imc");
 
-    var pesoEhValido = validaPeso(peso);
-    var alturaEhValida = validaAltura(altura);
+    let pesoEhValido = validaPeso(peso);
+    let alturaEhValida = validaAltura(altura);
 
     if (!pesoEhValido) {
         console.log("Peso inválido!");
@@ -33,13 +33,13 @@ for (var i = 0; i < clientes.length; i++) {     // Iterando os clientes da tabel
     }
 
     if (pesoEhValido && alturaEhValida) {
-        var imc = calculaImc(peso, altura);
+        let imc = calculaImc(peso, altura);
         tdImc.textContent = imc;
     }
 }
 
 function calculaImc(peso, altura) {
-    var imc = 0;
+    let imc = 0;
     imc = peso / (altura * altura);
 
     return imc.toFixed(2);

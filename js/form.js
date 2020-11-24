@@ -1,12 +1,12 @@
-var botaoAdicionar = document.querySelector("#adicionar-cliente");
+const botaoAdicionar = document.querySelector("#adicionar-cliente");
 botaoAdicionar.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var form = document.querySelector("#form-adiciona");
+    const form = document.querySelector("#form-adiciona");
 
-    var cliente = obtemclienteDoFormulario(form);
+    let cliente = obtemclienteDoFormulario(form);
 
-    var erros = validacliente(cliente);
+    let erros = validacliente(cliente);
 
     if (erros.length > 0) {
         exibeMensagensDeErro(erros);
@@ -18,14 +18,14 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     form.reset();
 
-    var mensagensErro = document.querySelector("#mensagens-erro");
+    const mensagensErro = document.querySelector("#mensagens-erro");
     mensagensErro.innerHTML = "";
 
 });
 
 function obtemclienteDoFormulario(form) {
 
-    var cliente = {
+    const cliente = {
         nome: form.nome.value,
         peso: form.peso.value,
         altura: form.altura.value,
@@ -37,7 +37,7 @@ function obtemclienteDoFormulario(form) {
 }
 
 function montaTr(cliente) {
-    var clienteTr = document.createElement("tr");
+    const clienteTr = document.createElement("tr");
     clienteTr.classList.add("cliente");
 
     clienteTr.appendChild(montaTd(cliente.nome, "info-nome"));
@@ -50,7 +50,7 @@ function montaTr(cliente) {
 }
 
 function montaTd(dado, classe) {
-    var td = document.createElement("td");
+    const td = document.createElement("td");
     td.classList.add(classe);
     td.textContent = dado;
 
@@ -59,7 +59,7 @@ function montaTd(dado, classe) {
 
 function validacliente(cliente) {
 
-    var erros = [];
+    let erros = [];
 
     if (cliente.nome.length == 0) {
         erros.push("O nome não pode ser em branco");
@@ -89,18 +89,18 @@ function validacliente(cliente) {
 }
 
 function exibeMensagensDeErro(erros) {
-    var ul = document.querySelector("#mensagens-erro");
+    const ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";
 
     erros.forEach(function(erro) {
-        var li = document.createElement("li");
+        const li = document.createElement("li");
         li.textContent = erro;
         ul.appendChild(li);
     });
 }
 
 function adicionaclienteNaTabela(cliente) {
-    var clienteTr = montaTr(cliente);
-    var tabela = document.querySelector("#tabela-clientes");
+    const clienteTr = montaTr(cliente);
+    const tabela = document.querySelector("#tabela-clientes");
     tabela.appendChild(clienteTr);
 }
