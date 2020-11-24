@@ -6,7 +6,7 @@ Technologies and Skills used in Version 1.0:
 
 - JavaScript (DOM)
 
-- Regex
+- RegExp
 
 - Ajax (asynchronous request)
 
